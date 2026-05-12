@@ -18,8 +18,17 @@ fetch('./foods.csv')
 
             const food = cols[0];
             const calories = parseFloat(cols[1]);
+            const protein = parseFloat(cols[2]);
+            const carbs = parseFloat(cols[3]);
+            const fat = parseFloat(cols[4]);
 
-            foods.push({ food, calories });
+            foods.push({
+                food,
+                calories,
+                protein,
+                carbs,
+                fat
+            });
 
             const option = document.createElement('option');
             option.value = food;
@@ -103,10 +112,13 @@ function calculateCalories() {
     const calories = (foodData.calories / 100) * weight;
 
     const meal = {
-        food: foodName,
-        weight: weight,
-        calories: calories
-    };
+    food: foodName,
+    weight: weight,
+    calories: calories,
+    protein: (foodData.protein / 100) * weight,
+    carbs: (foodData.carbs / 100) * weight,
+    fat: (foodData.fat / 100) * weight
+};
 
     saveMeal(meal);
     addRow(meal);
@@ -125,7 +137,10 @@ function addRow(meal) {
         <tr>
             <td>${meal.food}</td>
             <td>${meal.weight}g</td>
-            <td>${meal.calories.toFixed(2)}</td>
+            <td>${meal.calories.toFixed(1)}</td>
+            <td>${meal.protein.toFixed(1)}g</td>
+            <td>${meal.carbs.toFixed(1)}g</td>
+            <td>${meal.fat.toFixed(1)}g</td>
         </tr>
     `;
 
