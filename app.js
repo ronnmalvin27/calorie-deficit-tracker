@@ -8,7 +8,7 @@ let totalCarbs = 0;
 let totalFat = 0;
 
 // ==========================
-// LOAD CSV FOODS
+// LOAD CSV
 // ==========================
 fetch('./foods.csv')
     .then(res => res.text())
@@ -27,13 +27,7 @@ fetch('./foods.csv')
             const carbs = parseFloat(cols[3]) || 0;
             const fat = parseFloat(cols[4]) || 0;
 
-            foods.push({
-                food,
-                calories,
-                protein,
-                carbs,
-                fat
-            });
+            foods.push({ food, calories, protein, carbs, fat });
 
             const option = document.createElement('option');
             option.value = food;
@@ -44,13 +38,14 @@ fetch('./foods.csv')
     });
 
 // ==========================
-// LOGIN USER
+// LOGIN
 // ==========================
 function login() {
+
     const name = document.getElementById("username").value.trim();
 
     if (!name) {
-        alert("Please enter a username");
+        alert("Enter username");
         return;
     }
 
@@ -59,23 +54,23 @@ function login() {
     resetTotals();
     loadMeals();
 
-    alert(`Logged in as ${currentUser}`);
+    alert("Logged in as " + currentUser);
 }
 
 // ==========================
-// SAVE MEAL TO LOCALSTORAGE
+// SAVE
 // ==========================
 function saveMeal(meal) {
 
-    let userData = JSON.parse(localStorage.getItem(currentUser)) || { meals: [] };
+    let data = JSON.parse(localStorage.getItem(currentUser)) || { meals: [] };
 
-    userData.meals.push(meal);
+    data.meals.push(meal);
 
-    localStorage.setItem(currentUser, JSON.stringify(userData));
+    localStorage.setItem(currentUser, JSON.stringify(data));
 }
 
 // ==========================
-// LOAD MEALS
+// LOAD
 // ==========================
 function loadMeals() {
 
@@ -85,62 +80,59 @@ function loadMeals() {
 
     if (!currentUser) return;
 
-    let userData = JSON.parse(localStorage.getItem(currentUser)) || { meals: [] };
+    let data = JSON.parse(localStorage.getItem(currentUser)) || { meals: [] };
 
-    userData.meals.forEach(meal => {
+    data.meals.forEach(meal => {
         addRow(meal);
-        addToTotals(meal);
+        addTotals(meal);
     });
 
-    updateTotals();
+    updateUI();
 }
 
 // ==========================
-// CALCULATE MEAL
+// ADD MEAL
 // ==========================
 function calculateCalories() {
 
     if (!currentUser) {
-        alert("Please login first");
+        alert("Login first");
         return;
     }
 
-    const foodName = document.getElementById('foodSelect').value;
-    const weight = parseFloat(document.getElementById('weightInput').value);
+    const foodName = document.getElementById("foodSelect").value;
+    const weight = parseFloat(document.getElementById("weightInput").value);
 
     if (!foodName || !weight) {
-        alert("Select food and enter weight");
+        alert("Select food + weight");
         return;
     }
 
-    const foodData = foods.find(f => f.food === foodName);
+    const food = foods.find(f => f.food === foodName);
 
-    if (!foodData) {
-        alert("Food not found");
-        return;
-    }
+    if (!food) return;
 
     const meal = {
         food: foodName,
         weight: weight,
-        calories: (foodData.calories / 100) * weight,
-        protein: (foodData.protein / 100) * weight,
-        carbs: (foodData.carbs / 100) * weight,
-        fat: (foodData.fat / 100) * weight
+        calories: (food.calories / 100) * weight,
+        protein: (food.protein / 100) * weight,
+        carbs: (food.carbs / 100) * weight,
+        fat: (food.fat / 100) * weight
     };
 
     saveMeal(meal);
     addRow(meal);
-    addToTotals(meal);
-    updateTotals();
+    addTotals(meal);
+    updateUI();
 }
 
 // ==========================
-// ADD ROW TO TABLE
+// TABLE ROW
 // ==========================
 function addRow(meal) {
 
-    const row = `
+    document.getElementById("historyBody").innerHTML += `
         <tr>
             <td>${meal.food}</td>
             <td>${meal.weight}g</td>
@@ -150,24 +142,19 @@ function addRow(meal) {
             <td>${meal.fat.toFixed(1)}g</td>
         </tr>
     `;
-
-    document.getElementById("historyBody").innerHTML += row;
 }
 
 // ==========================
-// ADD TO TOTALS
+// TOTALS
 // ==========================
-function addToTotals(meal) {
+function addTotals(meal) {
     totalCalories += meal.calories;
     totalProtein += meal.protein;
     totalCarbs += meal.carbs;
     totalFat += meal.fat;
 }
 
-// ==========================
-// UPDATE TOTAL DISPLAY
-// ==========================
-function updateTotals() {
+function updateUI() {
 
     document.getElementById("totalCalories").innerText =
         `Total Calories: ${totalCalories.toFixed(1)}`;
@@ -176,9 +163,6 @@ function updateTotals() {
         `Protein: ${totalProtein.toFixed(1)}g | Carbs: ${totalCarbs.toFixed(1)}g | Fat: ${totalFat.toFixed(1)}g`;
 }
 
-// ==========================
-// RESET TOTALS
-// ==========================
 function resetTotals() {
     totalCalories = 0;
     totalProtein = 0;
@@ -187,7 +171,7 @@ function resetTotals() {
 }
 
 // ==========================
-// CLEAR ALL DATA
+// CLEAR ALL
 // ==========================
 function clearAll() {
 
@@ -198,5 +182,12 @@ function clearAll() {
     document.getElementById("historyBody").innerHTML = "";
 
     resetTotals();
-    updateTotals();
+    updateUI();
 }
+
+// ==========================
+// CONNECT BUTTONS (IMPORTANT FIX)
+// ==========================
+document.getElementById("loginBtn").addEventListener("click", login);
+document.getElementById("calcBtn").addEventListener("click", calculateCalories);
+document.getElementById("clearBtn").addEventListener("click", clearAll);
