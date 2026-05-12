@@ -70,3 +70,12 @@ White Long-Grain (Raw),365,7,80,0.7
 White Rice (Cooked),130,2.5,28,0.3
 White Short-Grain (Cooked),129,2.4,28,0.3
 White Short-Grain (Raw),360,7,79,0.6
+Coffee (black, brewed),2,0,0,0
+Espresso,3,0,0,0
+Americano,2,0,0,0
+Latte (whole milk),120,6,12,6
+Cappuccino (whole milk),80,4,8,4
+Flat White (whole milk),120,6,12,6
+Mocha (whole milk, with chocolate),190,8,25,7
+Macchiato (espresso + small milk),15,1,1,0.5
+Iced Coffee (unsweetened),5,0,1,0
