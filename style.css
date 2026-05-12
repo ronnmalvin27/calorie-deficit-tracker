@@ -5,7 +5,7 @@ body {
 }
 
 .container {
-    max-width: 700px;
+    max-width: 750px;
     margin: auto;
     background: white;
     padding: 20px;
@@ -16,36 +16,38 @@ h1 {
     text-align: center;
 }
 
+/* LOGIN */
 .login-box {
     display: flex;
     gap: 10px;
-    margin-bottom: 10px;
 }
 
-input, select, button {
+/* INPUTS */
+input, button {
     width: 100%;
     padding: 10px;
     margin-top: 10px;
     box-sizing: border-box;
-    font-size: 15px;
 }
 
+/* BUTTONS */
 .btn-group {
     display: flex;
     gap: 10px;
 }
 
 button {
-    cursor: pointer;
     background: #4CAF50;
     color: white;
     border: none;
+    cursor: pointer;
 }
 
 button:hover {
     background: #45a049;
 }
 
+/* MACROS */
 .macro-box {
     margin-top: 15px;
     padding: 10px;
@@ -55,9 +57,40 @@ button:hover {
 
 .macro-box h3 {
     margin: 5px 0;
-    font-size: 16px;
 }
 
+/* SEARCH */
+.search-box {
+    position: relative;
+    margin-top: 10px;
+}
+
+#foodSearch {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.suggestions {
+    position: absolute;
+    width: 100%;
+    background: white;
+    border: 1px solid #ddd;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 999;
+}
+
+.suggestions div {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestions div:hover {
+    background: #f0f0f0;
+}
+
+/* TABLE */
 table {
     width: 100%;
     margin-top: 20px;
