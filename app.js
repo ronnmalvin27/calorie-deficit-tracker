@@ -1,5 +1,6 @@
 let foods = [];
 let currentUser = null;
+let selectedFood = null;
 
 // totals
 let totalCalories = 0;
@@ -21,21 +22,54 @@ fetch('./foods.csv')
 
             const cols = row.split(',');
 
-            const food = cols[0];
-            const calories = parseFloat(cols[1]) || 0;
-            const protein = parseFloat(cols[2]) || 0;
-            const carbs = parseFloat(cols[3]) || 0;
-            const fat = parseFloat(cols[4]) || 0;
-
-            foods.push({ food, calories, protein, carbs, fat });
-
-            const option = document.createElement('option');
-            option.value = food;
-            option.textContent = food;
-
-            document.getElementById('foodSelect').appendChild(option);
+            foods.push({
+                food: cols[0],
+                calories: parseFloat(cols[1]) || 0,
+                protein: parseFloat(cols[2]) || 0,
+                carbs: parseFloat(cols[3]) || 0,
+                fat: parseFloat(cols[4]) || 0
+            });
         });
     });
+
+// ==========================
+// SEARCH DROPDOWN
+// ==========================
+const searchInput = document.getElementById("foodSearch");
+const suggestionsBox = document.getElementById("suggestions");
+
+searchInput.addEventListener("input", function () {
+
+    const query = this.value.toLowerCase();
+    suggestionsBox.innerHTML = "";
+
+    if (!query) return;
+
+    const results = foods.filter(f =>
+        f.food.toLowerCase().includes(query)
+    );
+
+    results.forEach(item => {
+
+        const div = document.createElement("div");
+        div.textContent = item.food;
+
+        div.onclick = () => {
+            searchInput.value = item.food;
+            selectedFood = item;
+            suggestionsBox.innerHTML = "";
+        };
+
+        suggestionsBox.appendChild(div);
+    });
+});
+
+// close dropdown
+document.addEventListener("click", function (e) {
+    if (e.target.id !== "foodSearch") {
+        suggestionsBox.innerHTML = "";
+    }
+});
 
 // ==========================
 // LOGIN
@@ -58,7 +92,7 @@ function login() {
 }
 
 // ==========================
-// SAVE TO LOCALSTORAGE
+// SAVE
 // ==========================
 function saveMeal(meal) {
 
@@ -70,7 +104,7 @@ function saveMeal(meal) {
 }
 
 // ==========================
-// LOAD MEALS
+// LOAD
 // ==========================
 function loadMeals() {
 
@@ -100,23 +134,20 @@ function calculateCalories() {
         return;
     }
 
-    const foodName = document.getElementById("foodSelect").value;
     const weight = parseFloat(document.getElementById("weightInput").value);
 
-    if (!foodName || !weight) {
-        alert("Select food and weight");
+    if (!selectedFood || !weight) {
+        alert("Search and select food + enter weight");
         return;
     }
 
-    const food = foods.find(f => f.food === foodName);
-
     const meal = {
-        food: foodName,
+        food: selectedFood.food,
         weight: weight,
-        calories: (food.calories / 100) * weight,
-        protein: (food.protein / 100) * weight,
-        carbs: (food.carbs / 100) * weight,
-        fat: (food.fat / 100) * weight
+        calories: (selectedFood.calories / 100) * weight,
+        protein: (selectedFood.protein / 100) * weight,
+        carbs: (selectedFood.carbs / 100) * weight,
+        fat: (selectedFood.fat / 100) * weight
     };
 
     saveMeal(meal);
@@ -153,7 +184,7 @@ function addTotals(meal) {
 }
 
 // ==========================
-// UPDATE UI
+// UI UPDATE
 // ==========================
 function updateUI() {
 
@@ -181,7 +212,7 @@ function resetTotals() {
 }
 
 // ==========================
-// CLEAR ALL
+// CLEAR
 // ==========================
 function clearAll() {
 
@@ -196,7 +227,7 @@ function clearAll() {
 }
 
 // ==========================
-// BUTTONS (IMPORTANT)
+// BUTTONS
 // ==========================
 document.getElementById("loginBtn").addEventListener("click", login);
 document.getElementById("calcBtn").addEventListener("click", calculateCalories);
