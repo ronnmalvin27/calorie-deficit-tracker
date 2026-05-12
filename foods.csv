@@ -1,18 +1,19 @@
-Food,Calories,Protein,Carbs,Fat
-Adobo (Chicken, cooked),215,25,2,12
+Adobo (Chicken cooked),215,25,2,12
 Almonds,579,21,22,50
 Apple,52,0.3,14,0.2
 Asparagus,20,2.2,3.9,0.1
 Avocado,160,2,9,15
 Banana,89,1.1,23,0.3
+Basmati (Cooked),121,4,25.2,0.3
+Basmati (Raw),350,7.5,77,0.6
 Beef (lean cooked),250,26,0,17
 Bok Choy,13,1.5,2.2,0.2
 Bread (white),265,9,49,3.2
 Bread (whole wheat),247,13,41,4.2
 Broccoli,34,2.8,7,0.4
 Burger (beef),295,17,30,12
-Cashews,553,18,30,44
 Carrots,41,0.9,10,0.2
+Cashews,553,18,30,44
 Cauliflower,25,2,5,0.3
 Cheese (cheddar),402,25,1.3,33
 Chicken (Roast),239,27,0,14
@@ -24,13 +25,16 @@ Egg (Boiled),155,13,1.1,11
 Egg (Fried),196,13,1.1,15
 Egg (Steam),143,12,1.1,10
 Egg White,52,11,1,0.2
+French Fries,312,3.4,41,15
 Fried Bangus,305,25,0,22
 Fried Chicken,260,25,8,15
 Fried Tofu,271,18,8,21
-French Fries,312,3.4,41,15
 Galunggong (fried),206,22,0,12
-Iceberg Lettuce,14,1,3,0.1
 Ice Cream,207,3.5,24,11
+Iceberg Lettuce,14,1,3,0.1
+Instant White Rice (Cooked),130,2.4,28,0.3
+Jasmine Rice (Cooked),129,2.9,27.9,0.3
+Jasmine Rice (Raw),360,7,78,0.6
 Kangkong,19,2.6,3.2,0.2
 Mango,60,0.8,15,0.4
 Mapo Tofu,180,12,10,10
@@ -39,18 +43,20 @@ Milk (whole),61,3.2,4.8,3.3
 Oatmeal (dry),389,17,66,7
 Orange,47,0.9,12,0.1
 Pancake,227,6,28,9
+Parboiled White (Cooked),123,2.7,26,0.4
 Peanut Butter,588,25,20,50
 Pineapple,50,0.5,13,0.1
+Pork (lean cooked),242,27,0,14
 Pork Adobo (lean),290,22,3,20
 Pork Sinigang,180,18,6,9
-Pork (lean cooked),242,27,0,14
 Potato (boiled),87,2,20,0.1
 Salmon Belly,280,19,0,23
 Salmon,208,20,0,13
 Shrimp,99,24,0.2,0.3
-Spinach,23,2.9,3.6,0.4
 Spaghetti (with sauce),158,5,30,4
+Spinach,23,2.9,3.6,0.4
 Steak (beef grilled),271,26,0,19
+Sushi Rice (Cooked),130,2.2,28,0.3
 Sweet Potato,86,1.6,20,0.1
 Taho,140,6,25,3
 Tilapia (fried),232,26,0,14
@@ -59,5 +65,8 @@ Tofu,76,8,2,4.8
 Tomato,18,0.9,3.9,0.2
 Tuna (canned in water),132,29,0,1
 Watermelon,30,0.6,8,0.2
-Yogurt (plain),59,10,3.6,0.4
-Zucchini,17,1.2,3.1,0.3
+White Long-Grain (Cooked),130,2.4,28,0.3
+White Long-Grain (Raw),365,7,80,0.7
+White Rice (Cooked),130,2.5,28,0.3
+White Short-Grain (Cooked),129,2.4,28,0.3
+White Short-Grain (Raw),360,7,79,0.6
