@@ -58,7 +58,7 @@ function login() {
 }
 
 // ==========================
-// SAVE
+// SAVE TO LOCALSTORAGE
 // ==========================
 function saveMeal(meal) {
 
@@ -70,7 +70,7 @@ function saveMeal(meal) {
 }
 
 // ==========================
-// LOAD
+// LOAD MEALS
 // ==========================
 function loadMeals() {
 
@@ -104,13 +104,11 @@ function calculateCalories() {
     const weight = parseFloat(document.getElementById("weightInput").value);
 
     if (!foodName || !weight) {
-        alert("Select food + weight");
+        alert("Select food and weight");
         return;
     }
 
     const food = foods.find(f => f.food === foodName);
-
-    if (!food) return;
 
     const meal = {
         food: foodName,
@@ -137,9 +135,9 @@ function addRow(meal) {
             <td>${meal.food}</td>
             <td>${meal.weight}g</td>
             <td>${meal.calories.toFixed(1)}</td>
-            <td>${meal.protein.toFixed(1)}g</td>
-            <td>${meal.carbs.toFixed(1)}g</td>
-            <td>${meal.fat.toFixed(1)}g</td>
+            <td>${meal.protein.toFixed(1)}</td>
+            <td>${meal.carbs.toFixed(1)}</td>
+            <td>${meal.fat.toFixed(1)}</td>
         </tr>
     `;
 }
@@ -154,15 +152,27 @@ function addTotals(meal) {
     totalFat += meal.fat;
 }
 
+// ==========================
+// UPDATE UI
+// ==========================
 function updateUI() {
 
     document.getElementById("totalCalories").innerText =
         `Total Calories: ${totalCalories.toFixed(1)}`;
 
-    document.getElementById("macroTotals").innerText =
-        `Protein: ${totalProtein.toFixed(1)}g | Carbs: ${totalCarbs.toFixed(1)}g | Fat: ${totalFat.toFixed(1)}g`;
+    document.getElementById("totalProtein").innerText =
+        `Total Protein: ${totalProtein.toFixed(1)}g`;
+
+    document.getElementById("totalCarbs").innerText =
+        `Total Carbs: ${totalCarbs.toFixed(1)}g`;
+
+    document.getElementById("totalFat").innerText =
+        `Total Fat: ${totalFat.toFixed(1)}g`;
 }
 
+// ==========================
+// RESET
+// ==========================
 function resetTotals() {
     totalCalories = 0;
     totalProtein = 0;
@@ -186,7 +196,7 @@ function clearAll() {
 }
 
 // ==========================
-// CONNECT BUTTONS (IMPORTANT FIX)
+// BUTTONS (IMPORTANT)
 // ==========================
 document.getElementById("loginBtn").addEventListener("click", login);
 document.getElementById("calcBtn").addEventListener("click", calculateCalories);
