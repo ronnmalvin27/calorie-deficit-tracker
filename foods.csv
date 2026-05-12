@@ -1,5 +1,11 @@
-﻿Food,Calories
-Rice,130
-Chicken Breast,165
-Egg,155
-Banana,89
+﻿Food,Calories,Protein,Carbs,Fat
+Rice,130,2.7,28,0.3
+Chicken Breast,165,31,0,3.6
+Egg,155,13,1.1,11
+Banana,89,1.1,23,0.3
+Bread,265,9,49,3.2
+Oatmeal,389,17,66,7
+Tuna,132,29,0,1
+Beef (lean),250,26,0,17
+Salmon,208,20,0,13
+Milk (whole),61,3.2,4.8,3.3
