@@ -1,7 +1,9 @@
+/* Base styles */
 body {
     font-family: Arial, sans-serif;
     background: #f2f2f2;
-    padding: 20px;
+    padding: 10px;
+    margin: 0;
 }
 
 .container {
@@ -12,54 +14,31 @@ body {
     border-radius: 10px;
 }
 
+/* Headings */
 h1 {
     text-align: center;
+    font-size: 2em;
+    margin-bottom: 10px;
 }
 
-/* LOGIN */
+/* Login box */
 .login-box {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
+    margin-bottom: 10px;
 }
 
-/* INPUTS */
-input, button {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    box-sizing: border-box;
+.login-box input {
+    flex: 1 1 60%;
+    min-width: 120px;
 }
 
-/* BUTTONS */
-.btn-group {
-    display: flex;
-    gap: 10px;
+.login-box button {
+    flex: 1 1 35%;
 }
 
-button {
-    background: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #45a049;
-}
-
-/* MACROS */
-.macro-box {
-    margin-top: 15px;
-    padding: 10px;
-    background: #f7f7f7;
-    border-radius: 8px;
-}
-
-.macro-box h3 {
-    margin: 5px 0;
-}
-
-/* SEARCH */
+/* Search box */
 .search-box {
     position: relative;
     margin-top: 10px;
@@ -69,6 +48,7 @@ button:hover {
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
+    font-size: 1em;
 }
 
 .suggestions {
@@ -90,19 +70,92 @@ button:hover {
     background: #f0f0f0;
 }
 
-/* TABLE */
+/* Weight input */
+#weightInput {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    box-sizing: border-box;
+}
+
+/* Buttons */
+.btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn-group button {
+    flex: 1 1 48%;
+    padding: 10px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-group button:hover {
+    background: #45a049;
+}
+
+/* Macros display */
+.macro-box {
+    margin-top: 15px;
+    padding: 10px;
+    background: #f7f7f7;
+    border-radius: 8px;
+}
+
+.macro-box h3 {
+    margin: 5px 0;
+    font-size: 1em;
+}
+
+/* Table */
 table {
     width: 100%;
     margin-top: 20px;
     border-collapse: collapse;
+    font-size: 0.9em;
 }
 
 th, td {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 6px;
     text-align: center;
 }
 
 th {
     background: #eee;
+}
+
+/* Make table scrollable on mobile */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+/* ========================= */
+/* MOBILE MEDIA QUERIES */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .macro-box h3 {
+        font-size: 0.9em;
+    }
+
+    #foodSearch, #weightInput {
+        font-size: 1em;
+    }
+
+    .btn-group button {
+        flex: 1 1 100%;
+    }
+
+    table, th, td {
+        font-size: 0.8em;
+        padding: 4px;
+    }
 }
