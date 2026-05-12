@@ -2,27 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calorie Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <div class="container">
-        <h1>Nobi's Calorie Deficit Tracker</h1>
-        <input id="username" placeholder="Enter username">
-        <button onclick="login()">Login</button>
-        <select id="foodSelect">
-            <option>Select Food</option>
-        </select>
+<div class="container">
 
-        <input type="number" id="weightInput" placeholder="Enter weight in grams">
+    <h1>Calorie & Macro Tracker</h1>
 
-        <button onclick="calculateCalories()">Calculate</button>
+    <!-- LOGIN -->
+    <input id="username" placeholder="Enter username">
+    <button id="loginBtn">Login</button>
 
-        <h3 id="macroTotals"></h3>
+    <hr>
 
+    <!-- FOOD INPUT -->
+    <select id="foodSelect">
+        <option value="">Select Food</option>
+    </select>
+
+    <input type="number" id="weightInput" placeholder="Enter weight (grams)">
+
+    <button id="calcBtn">Add Meal</button>
+    <button id="clearBtn">Clear All</button>
+
+    <h3 id="totalCalories">Total Calories: 0</h3>
+    <h3 id="macroTotals">Protein: 0g | Carbs: 0g | Fat: 0g</h3>
+
+    <!-- TABLE -->
+    <table>
         <thead>
             <tr>
                 <th>Food</th>
@@ -34,17 +46,12 @@
             </tr>
         </thead>
 
-            <tbody id="historyBody"></tbody>
-        </table>
+        <tbody id="historyBody"></tbody>
+    </table>
 
-        
+</div>
 
-        <button onclick="clearAll()" class="clear-btn">
-            Clear Everything
-        </button>
-    </div>
-
-    <script src="app.js"></script>
+<script src="app.js"></script>
 
 </body>
 </html>
