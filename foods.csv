@@ -1,11 +1,49 @@
-﻿Food,Calories,Protein,Carbs,Fat
-Rice,130,2.7,28,0.3
-Chicken Breast,165,31,0,3.6
-Egg,155,13,1.1,11
+Food,Calories,Protein,Carbs,Fat
+Rice (white cooked),130,2.7,28,0.3
+Brown Rice (cooked),112,2.6,23,0.9
+Chicken Breast (grilled),165,31,0,3.6
+Chicken Thigh (skinless),209,26,0,10.9
+Egg (whole),155,13,1.1,11
+Egg White,52,11,1,0.2
 Banana,89,1.1,23,0.3
-Bread,265,9,49,3.2
-Oatmeal,389,17,66,7
-Tuna,132,29,0,1
-Beef (lean),250,26,0,17
-Salmon,208,20,0,13
+Apple,52,0.3,14,0.2
+Orange,47,0.9,12,0.1
+Bread (white),265,9,49,3.2
+Bread (whole wheat),247,13,41,4.2
+Oatmeal (dry),389,17,66,7
 Milk (whole),61,3.2,4.8,3.3
+Milk (skim),34,3.4,5,0.1
+Yogurt (plain),59,10,3.6,0.4
+Cheese (cheddar),402,25,1.3,33
+Tuna (canned in water),132,29,0,1
+Salmon,208,20,0,13
+Beef (lean cooked),250,26,0,17
+Pork (lean cooked),242,27,0,14
+Shrimp,99,24,0.2,0.3
+Tofu,76,8,2,4.8
+Peanut Butter,588,25,20,50
+Almonds,579,21,22,50
+Cashews,553,18,30,44
+Sweet Potato,86,1.6,20,0.1
+Potato (boiled),87,2,20,0.1
+Corn,96,3.4,21,1.5
+Avocado,160,2,9,15
+Mango,60,0.8,15,0.4
+Watermelon,30,0.6,8,0.2
+Pineapple,50,0.5,13,0.1
+Carrots,41,0.9,10,0.2
+Broccoli,34,2.8,7,0.4
+Spinach,23,2.9,3.6,0.4
+Cucumber,15,0.7,3.6,0.1
+Tomato,18,0.9,3.9,0.2
+Ground Beef (80/20),254,17,0,20
+Hotdog,290,11,4,26
+Fried Chicken,260,25,8,15
+French Fries,312,3.4,41,15
+Burger (beef),295,17,30,12
+Pizza slice,285,12,36,10
+Spaghetti (with sauce),158,5,30,4
+Pancake,227,6,28,9
+Donut,452,4.9,51,25
+Chocolate bar,535,7,59,30
+Ice Cream,207,3.5,24,11
